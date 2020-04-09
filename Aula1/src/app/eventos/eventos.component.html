@@ -1,0 +1,25 @@
+<div>
+    <h1>Parabéns!</h1>
+    <h4>Seu componente está sendo exibido em tela</h4>
+    <hr>
+    <h5>Como aparece o seu evento abaixo?</h5>
+    
+<div *ngFor="let event of eventos">    
+    <div style="margin-top:30px">
+      Evento: {{ event.name }}
+    </div>
+    <div>
+      Data: {{ event.date }}
+    </div>
+    <div>
+      Hora: {{ event.time }}
+    </div>
+    <div *ngIf="!verificaEventoSomenteOnline(event) && verificaEventoComPresencial(event)">
+      Endereço: {{ event.location.country }} - {{ event.location.city}} - {{ event.location.address }}
+    </div>
+    <div *ngIf="event.onlineUrl !== undefined">
+      OnlineUrl: {{ event.onlineUrl }} 
+    </div>
+    <span *ngIf="verificaEventoSomenteOnline(event)"> Evento Online </span>
+  </div>
+</div>
